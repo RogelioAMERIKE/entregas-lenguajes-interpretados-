@@ -24,3 +24,6 @@ Espero trabajar profesionalmente en el juego que quiero desarrollar por cuenta p
 
 - ![Foto de la persona](assets/1000026918.jpg)
 
+## Entregables
+
+- [Practica 1](mds/apuntes.md)
