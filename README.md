@@ -27,3 +27,7 @@ Espero trabajar profesionalmente en el juego que quiero desarrollar por cuenta p
 ## Entregables
 
 - [Practica 1](mds/apuntes.md)
+
+- [Practica 2](mds/apuntes.md)
+
+PRUEBA
