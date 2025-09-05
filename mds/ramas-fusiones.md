@@ -30,3 +30,9 @@ En esta materia estoy aprendiendo a utilzar visual studio code con el lenguaje d
 En esta materia estoy aprendiendo todo sobre los compenentes y sistemas que tiene una computadora junto con un sistema virtual y como moverse atraves de comandos.
 
 ![Sistemas Operativos y Redes](../assets/Sistema.jpg)
+## Ingles_Tecnico_Para_Videojuegos
+### Profesor: Oropeza C1
+
+En esta materia estoy aprendiendo a como vender un producto o juego, como funcionan sus slogans y los conceptos gramaticales que se necesitan o utilizan. 
+
+![Inglés](../assets/Ingles.jpg)
