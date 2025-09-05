@@ -24,3 +24,9 @@ En esta materia estoy aprendiendo a utilizar Photoshop para hacer foto montajes,
 En esta materia estoy aprendiendo a utilzar visual studio code con el lenguaje de git bash y utilizarlo para crear archivos, carpetas, moverse atravez de Visual, crear ramas, guardar y como utilizar o crear los repositorios de GitHub.
 
 ![Programacion en lenguajes intepretados](../assets/Lenguajes.png)
+## Sistemas_Operativos_y_redes
+### Profesor: Alcides Albora Garcia
+
+En esta materia estoy aprendiendo todo sobre los compenentes y sistemas que tiene una computadora junto con un sistema virtual y como moverse atraves de comandos.
+
+![Sistemas Operativos y Redes](../assets/Sistema.jpg)
