@@ -30,3 +30,5 @@ Espero trabajar profesionalmente en el juego que quiero desarrollar por cuenta p
 
 - [Practica 2](mds/ramas-fusiones.md)
 
+- [Practica 3](mds/etiquetas.md)
+
