@@ -1,0 +1,45 @@
+* 6765cf2 Terminando Práctica Ramas y Fusiones
+*   f619dd8 Arreglando conflicto manual Ingles
+|\  
+| * b613f6a Agregando Ingles
+* |   09b13cd Arreglando conflicto manual Sistemas Operativos
+|\ \  
+| * | 6a71e78 Agregando Sistemas Operativos y Redes
+| |/  
+* |   40d97ac Arreglando conflicto manual Lenguajes Interpretados
+|\ \  
+| * | 78b830c Programacion en lneguajes Interpretados
+| |/  
+* |   df0aad6 Arreglando conflicto manual Principios
+|\ \  
+| * | 34d6a78 Principios de Composicion y Diseño
+| |/  
+* |   3900656 Arreglando conflicto manual
+|\ \  
+| * | 5ee7a1e Agregando Diseño de Videojuegos
+| |/  
+* / cf1f6c4 Agregando Proyecto Semestral
+|/  
+* 8ff897b Empezando Práctica Ramas y Fusiones
+* f2dbabc Empezando Práctica Ramas y Fusiones
+* 18eda6b Iniciando desde cero
+* 35d307e de vuelta a original
+* e424852 PRUEBA
+* 8274ae9 Empezando Practica Ramas y Fusiones
+*   9ad41cc Fusionando 'js'
+|\  
+| * ef6f461 Modificando index.html en la rama js
+| * f20559a creando archivo.js en la rama js+
+* | 30154aa Corrigiendo
+* |   af43235 Fusionando Ramas 'css'
+|\ \  
+| * | 9e8b2f4 Creando hoja styles.css
+* | | 5357956 Agregando codigo necesario para incluir archivo css y JavaScript
+| |/  
+|/|   
+* | d144444 Escribiendo contenido en el index.html
+* | 3ac9693 Agregando ramas
+|/  
+* f1ba126 Agregando apuntes de la materia
+* 5f22814 Agregando apuntes de la materia
+* d020732 Mi primer commit
