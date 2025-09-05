@@ -28,3 +28,5 @@ Espero trabajar profesionalmente en el juego que quiero desarrollar por cuenta p
 
 - [Practica 1](mds/apuntes.md)
 
+- [Practica 2](mds/ramas-fusiones.md)
+
