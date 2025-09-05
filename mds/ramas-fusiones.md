@@ -17,7 +17,7 @@ En esta materia estoy aprendiendo a como utilizar Unreal Engine y como desarrola
 
 En esta materia estoy aprendiendo a utilizar Photoshop para hacer foto montajes, jugar con los ajustes de la imagen y conceptos del diseño.
 
-![Principios de composición y diseño](assets/matematicas.jpg)
+![Principios de composición y diseño](../assets/Photoshop.jpg)
 ## Programacion_En_Lenguajes_Interpretados
 ### Profesor: Jonathan Ulises Miranda Charles
 
