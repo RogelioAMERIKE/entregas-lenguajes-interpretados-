@@ -34,6 +34,6 @@ Espero trabajar profesionalmente en el juego que quiero desarrollar por cuenta p
 
 - [Practica 4](mds/primer-parcial.md)
 
-- Practica 5(mds/primer-parcial.md)
+- Practica 5: Pull request
 
-- [Practica 6](mds/primer-parcial.md)
+- [Practica 6](docs/space-invaders.md)

@@ -84,3 +84,18 @@ Siendo uno de los primeros juegos de disparo, Space Invaders revolucionó la tec
 ## Diagrama de Flujo de Space Invaders
 
 - ![Diagrama de Flujo](../assets/Space-Invaders.png)
+
+---
+
+## Prompt para IA
+
+En lenguaje html construye un juego de Space Invaders que tenga opciones para reiniciar o irse al menu principal cuando pierde el jugador, que de niveles maximo tenga 3 donde por cada nivel superado aumenta su dificultad y donde el jugador inicie con 3 vidas colocando los enemigos y al jugador en sus respectivos lugares como en el juego original puedes ayudarte con este algoritmo y diagrama de flujo trata de que sea semejante al original:
+
+- Algoritmo del juego (Contiene el mismo texto de este archivo)
+
+- Diagrama de flujo (Imagen del diagrama de flujo que se presenta en este archivo)
+
+## Enlace de la conversacion
+
+- [IA utilizada: ChatGPT](https://chatgpt.com/share/68dc7f0b-b284-8002-9f62-64db47da507d) 
+

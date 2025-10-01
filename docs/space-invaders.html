@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Space Invaders con Defensas</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+    #menu, #gameOver, #victoria, #hud {
+      position: absolute;
+      width: 100%;
+      top: 30%;
+      text-align: center;
+      display: none;
+    }
+    canvas {
+      background: black;
+      display: block;
+      margin: auto;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #hud {
+      top: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: space-around;
+      font-size: 18px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="menu">
+    <h1>👾 Space Invaders 👾</h1>
+    <button onclick="iniciarJuego()">Iniciar Juego</button>
+  </div>
+
+  <div id="hud">
+    <span id="vidas">Vidas: 3</span>
+    <span id="puntos">Puntos: 0</span>
+    <span id="nivel">Nivel: 1</span>
+  </div>
+
+  <canvas id="gameCanvas" width="600" height="600"></canvas>
+
+  <div id="gameOver">
+    <h1>💀 GAME OVER 💀</h1>
+    <button onclick="reiniciar()">Reintentar</button>
+    <button onclick="volverMenu()">Menú Principal</button>
+  </div>
+
+  <div id="victoria">
+    <h1>🎉 ¡Victoria! 🎉</h1>
+    <p>Has derrotado a todos los invasores</p>
+    <button onclick="volverMenu()">Menú Principal</button>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const menu = document.getElementById("menu");
+    const hud = document.getElementById("hud");
+    const gameOverScreen = document.getElementById("gameOver");
+    const victoriaScreen = document.getElementById("victoria");
+
+    let jugador, enemigos, balasJugador, balasEnemigos, defensas;
+    let puntos, nivel, vidas, juegoActivo, direccionEnemigos, velocidadEnemigos, probDisparoEnemigos;
+
+    function iniciarJuego() {
+      menu.style.display = "none";
+      gameOverScreen.style.display = "none";
+      victoriaScreen.style.display = "none";
+      hud.style.display = "flex";
+
+      vidas = 3;
+      puntos = 0;
+      nivel = 1;
+      reiniciarNivel();
+    }
+
+    function crearDefensas() {
+      defensas = [];
+      const baseY = canvas.height - 120;
+      const anchoBloque = 10, altoBloque = 10;
+      const numBloquesAncho = 10, numBloquesAlto = 5;
+
+      const posiciones = [100, 250, 400]; // Posiciones x iniciales de cada defensa
+
+      posiciones.forEach(px => {
+        for (let fila = 0; fila < numBloquesAlto; fila++) {
+          for (let col = 0; col < numBloquesAncho; col++) {
+            defensas.push({
+              x: px + col * anchoBloque,
+              y: baseY + fila * altoBloque,
+              w: anchoBloque,
+              h: altoBloque,
+              vida: 2 // cada bloque soporta 2 impactos
+            });
+          }
+        }
+      });
+    }
+
+    function reiniciarNivel() {
+      jugador = { x: canvas.width/2 - 25, y: canvas.height - 50, w: 50, h: 20 };
+      balasJugador = [];
+      balasEnemigos = [];
+      enemigos = [];
+      juegoActivo = true;
+      direccionEnemigos = 1;
+      velocidadEnemigos = 0.5 + (nivel * 0.3);
+      probDisparoEnemigos = 0.001 * nivel;
+
+      for (let fila = 0; fila < 4; fila++) {
+        for (let col = 0; col < 8; col++) {
+          enemigos.push({ x: 80 + col*50, y: 50 + fila*40, w: 40, h: 20, vivo: true });
+        }
+      }
+
+      crearDefensas();
+      actualizarHUD();
+      requestAnimationFrame(loop);
+    }
+
+    function loop() {
+      if (!juegoActivo) return;
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+
+      // Jugador
+      ctx.fillStyle = "lime";
+      ctx.fillRect(jugador.x, jugador.y, jugador.w, jugador.h);
+
+      // Balas jugador
+      ctx.fillStyle = "white";
+      balasJugador.forEach(b => {
+        b.y -= 5;
+        ctx.fillRect(b.x, b.y, 5, 10);
+      });
+      balasJugador = balasJugador.filter(b => b.y > 0);
+
+      // Enemigos
+      let moverAbajo = false;
+      let vivos = enemigos.filter(e => e.vivo);
+      let bordeDerecho = Math.max(...vivos.map(e => e.x + e.w));
+      let bordeIzquierdo = Math.min(...vivos.map(e => e.x));
+
+      if (bordeDerecho >= canvas.width || bordeIzquierdo <= 0) {
+        direccionEnemigos *= -1;
+        moverAbajo = true;
+      }
+
+      enemigos.forEach(e => {
+        if (!e.vivo) return;
+        e.x += velocidadEnemigos * direccionEnemigos;
+        if (moverAbajo) e.y += 20;
+        ctx.fillStyle = "red";
+        ctx.fillRect(e.x, e.y, e.w, e.h);
+
+        if (Math.random() < probDisparoEnemigos) {
+          balasEnemigos.push({ x: e.x + e.w/2, y: e.y, w: 5, h: 10 });
+        }
+
+        if (e.y + e.h >= jugador.y) {
+          perder();
+        }
+      });
+
+      // Balas enemigos
+      ctx.fillStyle = "yellow";
+      balasEnemigos.forEach(b => {
+        b.y += 4;
+        ctx.fillRect(b.x, b.y, b.w, b.h);
+      });
+      balasEnemigos = balasEnemigos.filter(b => b.y < canvas.height);
+
+      // Defensas
+      defensas.forEach(d => {
+        if (d.vida > 0) {
+          ctx.fillStyle = d.vida === 2 ? "cyan" : "blue";
+          ctx.fillRect(d.x, d.y, d.w, d.h);
+        }
+      });
+
+      // Colisiones con defensas
+      balasJugador.forEach((b, i) => {
+        defensas.forEach(d => {
+          if (d.vida > 0 && b.x < d.x+d.w && b.x+5 > d.x && b.y < d.y+d.h && b.y+10 > d.y) {
+            d.vida--;
+            balasJugador.splice(i,1);
+          }
+        });
+      });
+
+      balasEnemigos.forEach((b, i) => {
+        defensas.forEach(d => {
+          if (d.vida > 0 && b.x < d.x+d.w && b.x+b.w > d.x && b.y < d.y+d.h && b.y+b.h > d.y) {
+            d.vida--;
+            balasEnemigos.splice(i,1);
+          }
+        });
+      });
+
+      // Colisiones jugador/enemigos
+      balasJugador.forEach((b, i) => {
+        enemigos.forEach(e => {
+          if (e.vivo && b.x < e.x+e.w && b.x+5 > e.x && b.y < e.y+e.h && b.y+10 > e.y) {
+            e.vivo = false;
+            balasJugador.splice(i,1);
+            puntos += 10;
+          }
+        });
+      });
+
+      balasEnemigos.forEach((b, i) => {
+        if (b.x < jugador.x+jugador.w && b.x+b.w > jugador.x && b.y < jugador.y+jugador.h && b.y+b.h > jugador.y) {
+          balasEnemigos.splice(i,1);
+          vidas--;
+          if (vidas <= 0) {
+            perder();
+          }
+        }
+      });
+
+      // ¿Victoria de nivel?
+      if (enemigos.every(e => !e.vivo)) {
+        nivel++;
+        if (nivel > 3) {
+          ganar();
+        } else {
+          reiniciarNivel();
+        }
+      }
+
+      actualizarHUD();
+      requestAnimationFrame(loop);
+    }
+
+    function perder() {
+      juegoActivo = false;
+      hud.style.display = "none";
+      gameOverScreen.style.display = "block";
+    }
+
+    function ganar() {
+      juegoActivo = false;
+      hud.style.display = "none";
+      victoriaScreen.style.display = "block";
+    }
+
+    function reiniciar() {
+      vidas = 3;
+      puntos = 0;
+      nivel = 1;
+      reiniciarNivel();
+      gameOverScreen.style.display = "none";
+    }
+
+    function volverMenu() {
+      menu.style.display = "block";
+      hud.style.display = "none";
+      gameOverScreen.style.display = "none";
+      victoriaScreen.style.display = "none";
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+    }
+
+    function actualizarHUD() {
+      document.getElementById("vidas").innerText = "Vidas: " + vidas;
+      document.getElementById("puntos").innerText = "Puntos: " + puntos;
+      document.getElementById("nivel").innerText = "Nivel: " + nivel;
+    }
+
+    // Controles
+    document.addEventListener("keydown", e => {
+      if (!juegoActivo) return;
+      if (e.key === "ArrowLeft" && jugador.x > 0) jugador.x -= 20;
+      if (e.key === "ArrowRight" && jugador.x < canvas.width - jugador.w) jugador.x += 20;
+      if (e.key === " ") balasJugador.push({ x: jugador.x + jugador.w/2 - 2, y: jugador.y, w: 5, h: 10 });
+    });
+  </script>
+</body>
+</html>
