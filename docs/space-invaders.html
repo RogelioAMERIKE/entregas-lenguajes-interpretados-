@@ -12,7 +12,14 @@
       text-align: center;
       overflow: hidden;
     }
-    #menu, #gameOver, #victoria, #hud {
+    #menu {
+      position: absolute;
+      width: 100%;
+      top: 30%;
+      text-align: center;
+      display: block; /* visible al inicio */
+    }
+    #gameOver, #victoria, #hud {
       position: absolute;
       width: 100%;
       top: 30%;
@@ -35,7 +42,7 @@
     #hud {
       top: 0;
       background: rgba(0,0,0,0.7);
-      display: flex;
+      display: none; /* oculto hasta que inicie el juego */
       justify-content: space-around;
       font-size: 18px;
       padding: 10px;
@@ -85,6 +92,8 @@
       gameOverScreen.style.display = "none";
       victoriaScreen.style.display = "none";
       hud.style.display = "flex";
+
+      ctx.clearRect(0,0,canvas.width,canvas.height); // limpiar pantalla
 
       vidas = 3;
       puntos = 0;
