@@ -97,5 +97,5 @@ En lenguaje html construye un juego de Space Invaders que tenga opciones para re
 
 ## Enlace de la conversacion
 
-- [IA utilizada: ChatGPT](https://chatgpt.com/share/68dc7f0b-b284-8002-9f62-64db47da507d) 
+- [IA utilizada: ChatGPT]() 
 
