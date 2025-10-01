@@ -38,4 +38,5 @@ Espero trabajar profesionalmente en el juego que quiero desarrollar por cuenta p
 
 - [Practica 6](docs/space-invaders.md)
 
-- [Practica 7](https://rogelioamerike.github.io/entregas-lenguajes-interpretados-/space-invaders.html)
+- [Practica 7](https://rogelioamerike.github.io/entregas-lenguajes-interpretados-/docs/index.html)
+
