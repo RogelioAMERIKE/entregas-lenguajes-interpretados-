@@ -37,3 +37,5 @@ Espero trabajar profesionalmente en el juego que quiero desarrollar por cuenta p
 - Practica 5: Pull request
 
 - [Practica 6](docs/space-invaders.md)
+
+- [Practica 7](https://rogelioamerike.github.io/entregas-lenguajes-interpretados/space-invaders.html)
