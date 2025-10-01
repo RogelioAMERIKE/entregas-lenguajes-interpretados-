@@ -33,3 +33,7 @@ Espero trabajar profesionalmente en el juego que quiero desarrollar por cuenta p
 - [Practica 3](mds/etiquetas.md)
 
 - [Practica 4](mds/primer-parcial.md)
+
+- Practica 5(mds/primer-parcial.md)
+
+- [Practica 6](mds/primer-parcial.md)
