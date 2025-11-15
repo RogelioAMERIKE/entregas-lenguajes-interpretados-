@@ -12,9 +12,48 @@
       color: #176778;
       font-family: 'Montserrat', Arial, sans-serif;
     }
-    .container {
+    .visible {display:block;}
+    .hidden {display:none;}
+    /* Menú principal */
+    .menu-container {
+      min-height: 100vh;
       display:flex;
       flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+    .main-title {
+      font-size: 3em;
+      font-weight: bold;
+      color: #219ebc;
+      text-align: center;
+      margin-bottom: 65px;
+      letter-spacing:2px;
+      margin-top:8vh;
+      text-shadow: 0 3px 15px #efffff77;
+    }
+    .main-menu-btn {
+      font-size:1.3em;
+      font-weight:600;
+      background: #219ebc;
+      color:#fff;
+      padding: 18px 0;
+      width:350px;
+      max-width:95vw;
+      border:none;
+      border-radius: 15px;
+      margin:0 0 17px 0;
+      cursor:pointer;
+      box-shadow:0 2px 11px #17809933;
+      transition:background .2s,transform .15s;
+      letter-spacing:1px;
+      display:block;
+    }
+    .main-menu-btn:hover {background:#126784;transform:scale(1.04);}
+    /* Secciones generales */
+    .section {display:none;}
+    /* Estilos de juego horizontal */
+    .container {
       min-height:100vh;
       align-items:center;
     }
@@ -73,7 +112,7 @@
     .gamebar {
       display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;
     }
-    .turn-indicator {font-size:1.18em;font-weight:bold;color:#b8277b;}
+    .turn-indicator {font-size:1.16em;font-weight:bold;color:#b8277b;}
     .btn {
       font-size:1em;
       font-weight:600;
@@ -92,7 +131,6 @@
     .btn-light {background: #dfedd1; color: #219ebc;}
     .btn-menu {background:#ffbaba;color:#4c4c4c;min-width:120px;}
     .btn-exit {background:#dfabb4;color:#fff;font-size:1em;padding:6px 17px;border-radius:11px;}
-    .btn:hover {background:#126784;transform:scale(1.07);}
     .cards-panel {
       margin:20px 0;
       background:#faffed;
@@ -123,43 +161,53 @@
     .ranking-list {padding:0;}
     .ranking-list li {list-style:none;font-size:1.1em;margin:8px 2px;}
     .dialog {background:#fff4fa;color:#bc6c98;border-radius:9px;padding:8px 13px;font-size:1em;margin:9px 0;}
+    .creditstxt, .tutorialtxt {padding:1em 0.6em;}
+    .title-section {font-weight:bold;font-size:1.16em;}
     @media (max-width:1000px){
       .game-layout{flex-direction:column;}
-      .side-panel{flex-direction:row;width:100%;min-width:0;max-width:98vw;justify-content:center;gap:8px;}
+      .side-panel{flex-direction:row;width:100%;min-width:0;max-width:98vw;justify-content:center;gap:8px;margin-bottom:0;}
       .main-panel{margin:12px 2vw;}
     }
     @media (max-width:700px){
+      .container{padding:0;}
       .header-bar{font-size:1.2em;padding:15px 6px 8px 12px;}
       .main-panel{flex:1;padding:13px 3vw;}
       .gamebar{flex-direction:column;}
       .turn-indicator{margin-bottom:7px;}
       .btn, .btn-light{font-size:0.89em;}
       .side-panel{font-size:.92em;}
+      .main-title{font-size:2em;width:96vw;}
+      .main-menu-btn{width:96vw;font-size:1em;}
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <!-- Menu principal -->
+  <div id="mainMenu" class="menu-container visible">
+    <div class="main-title">AXOLOTL PANIC<br>DELUXE EDITION</div>
+    <button class="main-menu-btn" onclick="switchSection('game')">JUGAR</button>
+    <button class="main-menu-btn" onclick="switchSection('tutorial')">TUTORIAL</button>
+    <button class="main-menu-btn" onclick="switchSection('credits')">CRÉDITOS</button>
+    <button class="main-menu-btn" onclick="if(confirm('¿Salir del juego?')) window.close()">SALIR</button>
+  </div>
+  <!-- Sección juego -->
+  <div id="gameSection" class="container hidden">
     <div class="header-bar">AXOLOTL PANIC</div>
     <div class="game-layout" id="gameLayout">
-      <!-- Side panel de jugadores -->
       <div class="side-panel" id="sidePanel"></div>
-      <!-- Panel central principal -->
       <div class="main-panel" id="mainPanel">
         <div class="gamebar">
           <div id="turnIndicator" class="turn-indicator"></div>
-          <button class="btn-exit" onclick="if(confirm('¿Salir al menú principal?'))window.location.reload()">Salir al Menú</button>
+          <button class="btn-exit" onclick="switchSection('menu')">Salir al Menú</button>
         </div>
         <div class="btn-group">
           <button id="recogerCartaBtn" class="btn" style="display:none;">Recoger Carta Nueva</button>
           <button id="tiendaBtn" class="btn btn-light">Ir a La Tiendita</button>
         </div>
-        <!-- Cartas almacenadas -->
         <div class="cards-panel">
           <b>Tus Cartas (<span id="nCartas"></span>/5)</b>
           <div id="cartasAlmacenadas"></div>
         </div>
-        <!-- Acciones de cartas -->
         <div class="btn-group" style="margin-bottom:10px;">
           <button id="aplicarCartaBtn" class="btn btn-light" style="display:none;">Aplicar Carta Nueva</button>
           <button id="almacenarCartaBtn" class="btn btn-menu" style="display:none;">Almacenar Carta Nueva</button>
@@ -168,7 +216,6 @@
         <div style="margin:20px 0 10px 0;font-weight:bold; color:#176778;">Fichas de Ajolotes</div>
         <div class="fichas-row" id="fichasCirculares"></div>
         <div id="turnDialog" class="dialog" style="display:none"></div>
-        <!-- Modales -->
         <div id="storeModal" class="store-modal">
           <div class="store-content">
             <button class="btn-exit" onclick="closeStore()">Cerrar Tienda</button>
@@ -188,16 +235,39 @@
             </div>
           </div>
         </div>
-        <!-- Ranking -->
         <div id="ranking" style="display:none;padding-top:30px;">
           <h2 style="color:#219ebc;font-size:2em;">¡Fin del Juego!</h2>
           <ul class="ranking-list" id="rankingList"></ul>
-          <button class="btn" onclick="window.location.reload()">Volver al Menú</button>
+          <button class="btn" onclick="switchSection('menu')">Volver al Menú</button>
         </div>
       </div>
     </div>
   </div>
+  <!-- Tutorial -->
+  <div id="tutorialSection" class="section hidden">
+    <button class="main-menu-btn" onclick="switchSection('menu')">← Volver al Menú</button>
+    <div class="title-section">Tutorial</div>
+    <div class="tutorialtxt">Aquí va el texto editable del tutorial.</div>
+  </div>
+  <!-- Créditos -->
+  <div id="creditsSection" class="section hidden">
+    <button class="main-menu-btn" onclick="switchSection('menu')">← Volver al Menú</button>
+    <div class="title-section">Créditos</div>
+    <div class="creditstxt">Equipo de desarrollo...</div>
+  </div>
+
   <script>
+    // Navegación entre secciones
+    function switchSection(sec) {
+      document.getElementById('mainMenu').classList.add('hidden');
+      document.getElementById('gameSection').classList.add('hidden');
+      document.getElementById('tutorialSection').classList.add('hidden');
+      document.getElementById('creditsSection').classList.add('hidden');
+      if(sec==="menu") document.getElementById('mainMenu').classList.remove('hidden');
+      if(sec==="game") {document.getElementById('gameSection').classList.remove('hidden');initGame();}
+      if(sec==="tutorial") document.getElementById('tutorialSection').classList.remove('hidden');
+      if(sec==="credits") document.getElementById('creditsSection').classList.remove('hidden');
+    }
     // ---- GAMEPLAY LOGIC ----
     // Variables de juego
     const jugadoresBase = [
@@ -243,7 +313,6 @@
     let esperandoSeleccionFicha = false;
 
     // INICIO DE JUEGO
-    initGame();
     function initGame(){
       jugadores = JSON.parse(JSON.stringify(jugadoresBase));
       for (let j of jugadores) {
@@ -261,6 +330,7 @@
       cartaActual=null;
       fichaSeleccionadaIdx = null;
       esperandoSeleccionFicha = false;
+      document.getElementById('ranking').style.display='none';
       updateUI();
       doTurno();
     }
@@ -293,14 +363,12 @@
       } else if(jugadores[turnoActual].tipo=='humano') {
         cartasArea.innerHTML = "<span style='color:#aaaa44;font-weight:bold;'>No tienes cartas almacenadas aún.</span>";
       }
-      // Fichas en tablero central
       let fichasRow = document.getElementById('fichasCirculares');
       fichasRow.innerHTML="";
       fichas.forEach((f,i)=>{
         let colorclass = f.revealed ? (f.color=='rosado'?'fichaRosa':(f.color=='café'?'fichaCafe':'fichaAmarilla')) : '';
         fichasRow.innerHTML+= `<div class="ficha-circle ${colorclass}"></div>`;
       });
-      // TurnIndicator
       document.getElementById('turnIndicator').innerHTML = `Turno de: <span style="color:#ee4cb7;font-weight:bold">${jugadores[turnoActual].nombre}</span>`;
     }
 
@@ -587,7 +655,6 @@
     }
     function closeStore(){ document.getElementById('storeModal').style.display='none'; }
 
-    // UTILS
     function sortTurnos(){
       let dados=jugadores.map(()=>dado(6));
       let max=dados.indexOf(Math.max(...dados));
