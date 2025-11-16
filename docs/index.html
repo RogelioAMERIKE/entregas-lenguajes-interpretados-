@@ -558,8 +558,6 @@ h6 { font-size: var(--font-size-md); }
   </div>
 </div>
 
-      </div>
-
       <!-- Panel central: Tablero de fichas -->
       <div class="board-panel">
         <div class="tokens-area">
@@ -1133,6 +1131,14 @@ function updateTurnIndicator() {
 
 
   </script>
+<!-- Modal de mensajes (necesario para showMessage) -->
+<div id="message-modal" class="modal">
+  <div class="modal-content">
+    <div id="message-title" class="message-title"></div>
+    <div id="message-text" class="message-text"></div>
+    <button class="btn btn--primary">Cerrar</button>
+  </div>
+</div>
   
 </body>
 </html>
