@@ -582,7 +582,7 @@ h6 { font-size: var(--font-size-md); }
   <!-- Aquí se agregarán los modales (cartas, selección, tienda, dados, victoria, mensajes) -->
 
   <!-- Enlace al script JavaScript -->
-   <!-- Modal de mensajes (necesario para showMessage) -->
+<!-- Modal de mensajes (necesario para showMessage) -->
 <div id="message-modal" class="modal">
   <div class="modal-content">
     <div id="message-title" class="message-title"></div>
@@ -590,11 +590,12 @@ h6 { font-size: var(--font-size-md); }
     <button class="btn btn--primary">Cerrar</button>
   </div>
 </div>
+
 <!-- Modal para cartas -->
 <div id="card-modal" class="modal">
   <div class="modal-content">
-    <div id="card-modal-title" class="modal-header"></div>
-    <div id="card-modal-desc" class="message-text"></div>
+    <div id="card-title" class="modal-header"></div>
+    <div id="card-description" class="message-text"></div>
     <div class="modal-buttons">
       <button id="play-card-btn" class="btn btn--primary">Usar Carta</button>
       <button id="store-card-btn" class="btn btn--secondary">Guardar Carta</button>
@@ -606,8 +607,8 @@ h6 { font-size: var(--font-size-md); }
 <!-- Modal para selección de jugador -->
 <div id="player-select-modal" class="modal">
   <div class="modal-content">
-    <div class="modal-header">Selecciona jugador</div>
-    <div id="player-select-list" class="hand-cards"></div>
+    <div id="player-select-title" class="modal-header"></div>
+    <div id="player-select-options" class="hand-cards"></div>
     <div class="modal-buttons">
       <button id="close-player-select-btn" class="btn btn-close">Cancelar</button>
     </div>
@@ -647,6 +648,7 @@ h6 { font-size: var(--font-size-md); }
     </div>
   </div>
 </div>
+
 
 <!-- Modal de mensajes -->
 <div id="message-modal" class="modal">
