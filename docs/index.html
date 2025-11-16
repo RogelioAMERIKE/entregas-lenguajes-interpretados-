@@ -590,6 +590,85 @@ h6 { font-size: var(--font-size-md); }
     <button class="btn btn--primary">Cerrar</button>
   </div>
 </div>
+<!-- Modal para cartas -->
+<div id="card-modal" class="modal">
+  <div class="modal-content">
+    <div id="card-modal-title" class="modal-header"></div>
+    <div id="card-modal-desc" class="message-text"></div>
+    <div class="modal-buttons">
+      <button id="play-card-btn" class="btn btn--primary">Usar Carta</button>
+      <button id="store-card-btn" class="btn btn--secondary">Guardar Carta</button>
+      <button id="close-card-modal-btn" class="btn btn-close">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para selección de jugador -->
+<div id="player-select-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">Selecciona jugador</div>
+    <div id="player-select-list" class="hand-cards"></div>
+    <div class="modal-buttons">
+      <button id="close-player-select-btn" class="btn btn-close">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de tienda -->
+<div id="shop-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">Tienda del juego</div>
+    <div id="shop-items-list" class="hand-cards"></div>
+    <div class="modal-buttons">
+      <button id="close-shop-modal-btn" class="btn btn-close">Cerrar Tienda</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para selección de ficha/token -->
+<div id="token-select-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">Selecciona ficha</div>
+    <div id="token-select-list" class="tokens-grid"></div>
+    <div class="modal-buttons">
+      <button id="close-token-select-btn" class="btn btn-close">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para lanzar dado -->
+<div id="dice-modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">Lanzar Dado</div>
+    <div id="dice-result" class="message-text"></div>
+    <div class="modal-buttons">
+      <button id="roll-dice-btn" class="btn btn--primary">Lanzar</button>
+      <button id="close-dice-modal-btn" class="btn btn-close">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de mensajes -->
+<div id="message-modal" class="modal">
+  <div class="modal-content">
+    <div id="message-title" class="message-title"></div>
+    <div id="message-text" class="message-text"></div>
+    <button class="btn btn--primary">Cerrar</button>
+  </div>
+</div>
+<!-- Modal para ver/jugar carta -->
+<div id="card-modal" class="modal">
+  <div class="modal-content">
+    <div id="card-modal-title" class="modal-header"></div>
+    <div id="card-modal-desc" class="message-text"></div>
+    <div class="modal-buttons">
+      <button id="play-card-btn" class="btn btn--primary">Usar Carta</button>
+      <button id="store-card-btn" class="btn btn--secondary">Guardar Carta</button>
+      <button id="close-card-modal-btn" class="btn btn-close">Cerrar</button>
+    </div>
+  </div>
+</div>
+
   <script>
     // app.js - Código completo parte 1
 
