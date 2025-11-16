@@ -2,11 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AXOLOTL PANIC - DELUXE EDITION</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Axolotl Panic - Deluxe Edition</title>
+  <!-- Aquí se enlazarán los estilos CSS -->
   <style>
-/* Aquí va el contenido completo y unificado de tu archivo style.css */
-
 :root {
   --color-white: rgba(255, 255, 255, 1);
   --color-black: rgba(0, 0, 0, 1);
@@ -25,525 +24,1086 @@
   --color-teal-500: rgba(33, 128, 141, 1);
   --color-teal-600: rgba(29, 116, 128, 1);
   --color-teal-700: rgba(26, 104, 115, 1);
-  --color-teal-800: rgba(41, 150, 161, 1);
-  --color-red-400: rgba(255, 84, 89, 1);
-  --color-red-500: rgba(192, 21, 47, 1);
-  --color-orange-400: rgba(230, 129, 97, 1);
-  --color-orange-500: rgba(168, 75, 47, 1);
+  --color-pink-400: rgba(255, 105, 180, 1);
+  --color-pink-500: rgba(255, 20, 147, 1);
+  --color-yellow-400: rgba(255, 215, 0, 1);
+  --color-orange-400: rgba(255, 165, 0, 1);
+  --color-purple-400: rgba(147, 51, 234, 1);
+
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(94, 82, 64, 0.12);
+  --color-secondary-hover: rgba(94, 82, 64, 0.2);
+  --color-border: rgba(94, 82, 64, 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 48px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ——— Todo el CSS unificado ——— */
-/* (Pega todo el contenido del archivo style.css aquí dentro) */
-
-/* Estilos para body, tipografía, layout, botones, modales, fichas, cards, etc... */
-body {
-  min-height: 100vh;
-  background: linear-gradient(110deg, #fae3e3 0%, #e5f2ff 100%);
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  color: var(--color-charcoal-800);
-  font-family: 'Montserrat', Arial, sans-serif;
 }
 
-/* Aquí continues todos los estilos que tengas en style.css traslada completos */
-/* No omitas nada para asegurar el diseño correcto */
-/* ... estilos aquí ... */
+body {
+  font-family: var(--font-family-base);
+  background: linear-gradient(135deg, var(--color-pink-400) 0%, var(--color-yellow-400) 50%, var(--color-teal-300) 100%);
+  color: var(--color-text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-  </style>
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: var(--space-16);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h1 { font-size: var(--font-size-4xl); }
+h2 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-2xl); }
+h4 { font-size: var(--font-size-xl); }
+h5 { font-size: var(--font-size-lg); }
+h6 { font-size: var(--font-size-md); }
+
+/* Buttons */
+
+.btn {
+  padding: var(--space-12) var(--space-24);
+  border: none;
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-family-base);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+}
+
+/* Screens */
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: var(--space-32);
+}
+
+.screen.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Menu principal */
+
+.menu-container {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: var(--space-32);
+}
+
+.game-title {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-24);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+/* Gameplay */
+
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: var(--space-12);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-24);
+}
+
+.turn-indicator {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+}
+
+#turn-timer {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  color: var(--color-pink-400);
+}
+
+.exit-menu-btn {
+  background-color: var(--color-red-400);
+  color: var(--color-white);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: none;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s ease;
+}
+
+.exit-menu-btn:hover {
+  background-color: var(--color-red-500);
+}
+
+/* Contenedor principal del juego */
+.game-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: var(--space-24);
+}
+
+/* Panel izquierda - jugadores */
+.players-panel {
+  flex: 1;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-16);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+/* Panel central - fichas y botones */
+.board-panel {
+  flex: 2;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-16);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Area para las fichas */
+.tokens-area {
+  flex-grow: 1;
+}
+
+.tokens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+/* Clase para fichas ocultas */
+.token.hidden {
+  opacity: 0.2;
+  cursor: default;
+}
+
+/* Clase para fichas recogidas */
+.token.collected {
+  background-color: var(--color-gray-300);
+  cursor: not-allowed;
+}
+
+/* Botones de acción */
+.action-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: var(--space-16);
+}
+
+.action-buttons > button {
+  min-width: 120px;
+}
+
+/* Panel derecha - mano del jugador */
+.player-hand {
+  flex: 1;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-16);
+  box-shadow: var(--shadow-md);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.hand-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+.hand-card {
+  background-color: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  padding: var(--space-8);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  min-width: 80px;
+  text-align: center;
+  font-weight: var(--font-weight-medium);
+}
+
+.hand-card:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Modales base */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: var(--color-cream-100);
+  padding: var(--space-24);
+  border-radius: var(--radius-md);
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+/* Modales específicos para cartas, selección, tienda, dados, victoria y mensajes */
+
+.modal-header {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-16);
+  color: var(--color-primary);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-12);
+  margin-top: var(--space-24);
+}
+
+.btn-sm {
+  padding: var(--space-8) var(--space-16);
+  font-size: var(--font-size-base);
+}
+
+.btn-close {
+  background-color: var(--color-gray-300);
+  color: var(--color-text-secondary);
+}
+
+.btn-close:hover {
+  background-color: var(--color-gray-400);
+}
+
+/* Tokens */
+
+.token {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.token.pink {
+  background-color: #ffc0cb;
+}
+
+.token.brown {
+  background-color: #a52a2a;
+  color: var(--color-white);
+}
+
+.token.yellow {
+  background-color: #ffd700;
+  color: var(--color-black);
+}
+
+.token.selectable:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+/* Mensajes */
+
+.message-title {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-12);
+  text-align: center;
+  color: var(--color-primary);
+}
+
+.message-text {
+  font-size: var(--font-size-lg);
+  text-align: center;
+  margin-bottom: var(--space-24);
+}
+
+/* Créditos */
+
+.credits-content {
+  max-width: 600px;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+/* Scroll bars for panels */
+.players-panel::-webkit-scrollbar,
+.player-hand::-webkit-scrollbar {
+  width: 6px;
+}
+
+.players-panel::-webkit-scrollbar-thumb,
+.player-hand::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: var(--radius-sm);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .game-container {
+    flex-direction: column;
+  }
+  .players-panel, .player-hand, .board-panel {
+    max-height: none;
+  }
+}
+
+</style>
+
+
 </head>
 <body>
-    <!-- Menú principal -->
-  <div id="mainMenu" class="menu-container visible">
-    <div class="main-title">AXOLOTL PANIC<br>DELUXE EDITION</div>
-    <button class="main-menu-btn" onclick="switchSection('game')">JUGAR</button>
-    <button class="main-menu-btn" onclick="switchSection('tutorial')">TUTORIAL</button>
-    <button class="main-menu-btn" onclick="switchSection('credits')">CRÉDITOS</button>
-    <button class="main-menu-btn" onclick="if(confirm('¿Salir del juego?')) window.close()">SALIR</button>
-  </div>
-  <!-- Sección juego -->
-  <div id="gameSection" class="container hidden">
-    <div class="header-bar">AXOLOTL PANIC</div>
-    <div class="game-layout" id="gameLayout">
-      <div class="side-panel" id="sidePanel"></div>
-      <div class="main-panel" id="mainPanel">
-        <div class="gamebar">
-          <div id="turnIndicator" class="turn-indicator"></div>
-          <button class="btn-exit" onclick="switchSection('menu')">Salir al Menú</button>
-        </div>
-        <div class="btn-group">
-          <button id="recogerCartaBtn" class="btn" style="display:none;">Recoger Carta Nueva</button>
-          <button id="tiendaBtn" class="btn btn-light">Ir a La Tiendita</button>
-        </div>
-        <div class="cards-panel">
-          <b>Tus Cartas (<span id="nCartas"></span>/5)</b>
-          <div id="cartasAlmacenadas"></div>
-        </div>
-        <div class="btn-group" style="margin-bottom:10px;">
-          <button id="aplicarCartaBtn" class="btn btn-light" style="display:none;">Aplicar Carta Nueva</button>
-          <button id="almacenarCartaBtn" class="btn btn-menu" style="display:none;">Almacenar Carta Nueva</button>
-          <button id="finalizarTurnoBtn" class="btn" style="display:none;">Finalizar Turno</button>
-        </div>
-        <div style="margin:20px 0 10px 0;font-weight:bold; color:#176778;">Fichas de Ajolotes</div>
-        <div class="fichas-row" id="fichasCirculares"></div>
-        <div id="turnDialog" class="dialog" style="display:none"></div>
-        <div id="storeModal" class="store-modal">
-          <div class="store-content">
-            <button class="btn-exit" onclick="closeStore()">Cerrar Tienda</button>
-            <h3 style="text-align:center;color:#219ebc;">La Tiendita</h3>
-            <p style="text-align:center;font-size:0.97em;color:#666;">Gasta basura para comprar puntos</p>
-            <div id="storeItems"></div>
-          </div>
-        </div>
-        <div id="fichaSeleccionModal" class="modal-overlay">
-          <div class="modal-content">
-            <h3 style="text-align:center;color:#219ebc;">Selecciona una Ficha</h3>
-            <p style="text-align:center;color:#666;">Haz clic en una ficha gris para seleccionarla</p>
-            <div class="fichas-row" id="fichasSelectModal"></div>
-            <div class="modal-buttons">
-              <button class="btn-aceptar" onclick="aceptarFichaSeleccionada()">Aceptar</button>
-              <button class="btn-cancelar" onclick="cancelarSeleccionFicha()">Cancelar</button>
-            </div>
-          </div>
-        </div>
-        <div id="ranking" style="display:none;padding-top:30px;">
-          <h2 style="color:#219ebc;font-size:2em;">¡Fin del Juego!</h2>
-          <ul class="ranking-list" id="rankingList"></ul>
-          <button class="btn" onclick="switchSection('menu')">Volver al Menú</button>
-        </div>
+  
+  <!-- MENÚ PRINCIPAL -->
+  <div id="menu-principal" class="screen active">
+    <div class="menu-container">
+      <h1 class="game-title">AXOLOTL PANIC<br>DELUXE EDITION</h1>
+      <div class="menu-buttons">
+        <button class="btn btn--primary btn--lg" onclick="startGame()">JUGAR</button>
+        <button class="btn btn--primary btn--lg" onclick="showScreen('tutorial')">TUTORIAL</button>
+        <button class="btn btn--primary btn--lg" onclick="showScreen('creditos')">CRÉDITOS</button>
+        <button class="btn btn--primary btn--lg" onclick="confirmExit()">SALIR</button>
       </div>
     </div>
   </div>
-  <!-- Tutorial -->
-  <div id="tutorialSection" class="section hidden">
-    <button class="main-menu-btn" onclick="switchSection('menu')">← Volver al Menú</button>
-    <div class="title-section">Tutorial</div>
-    <div class="tutorialtxt">Aquí va el texto editable del tutorial.</div>
+  
+  <!-- PANTALLA DE TUTORIAL -->
+  <div id="tutorial" class="screen">
+    <button class="btn btn--secondary back-button" onclick="showScreen('menu-principal')">REGRESAR</button>
+    <div class="content-container">
+      <h2>TUTORIAL</h2>
+      <div class="tutorial-content">
+        <!-- Descripción del objetivo y cómo jugar -->
+        <h3>Objetivo del Juego</h3>
+        <p>Acumula la mayor cantidad de puntos recogiendo fichas de ajolotes y comprando objetos en la tienda.</p>
+        
+        <h3>Cómo Jugar</h3>
+        <ul>
+          <li><strong>Turnos:</strong> Los jugadores toman turnos para recoger cartas y realizar acciones.</li>
+          <li><strong>Cartas:</strong> Recoge cartas que te dan basura, te permiten pescar ajolotes o activar efectos especiales.</li>
+          <li><strong>Basura:</strong> Sirve como moneda para comprar objetos en la tienda.</li>
+          <li><strong>Ajolotes:</strong> Recoge fichas de ajolotes para sumar puntos.</li>
+          <li><strong>Tienda:</strong> Compra objetos con tu basura para aumentar tu puntaje.</li>
+        </ul>
+        <!-- Más contenido del tutorial -->
+      </div>
+    </div>
   </div>
-  <!-- Créditos -->
-  <div id="creditsSection" class="section hidden">
-    <button class="main-menu-btn" onclick="switchSection('menu')">← Volver al Menú</button>
-    <div class="title-section">Créditos</div>
-    <div class="creditstxt">Equipo de desarrollo...</div>
+  
+  <!-- PANTALLA DE CRÉDITOS -->
+  <div id="creditos" class="screen">
+    <button class="btn btn--secondary back-button" onclick="showScreen('menu-principal')">REGRESAR</button>
+    <div class="content-container">
+      <h2>CRÉDITOS</h2>
+      <!-- Contenido de créditos -->
+      <div class="credits-content">
+        <h3>Desarrollo del Juego</h3>
+        <p><strong>AXOLOTL PANIC - DELUXE EDITION</strong></p>
+        <p>Un juego de mesa digital</p>
+        
+        <h4>Equipo de Desarrollo</h4>
+        <p>Diseño de Juego, Programación, Arte y Diseño Visual, Pruebas y Balance</p>
+        
+        <h4>Agradecimientos Especiales</h4>
+        <p>A todos los que hicieron posible este proyecto y a ti por jugar</p>
+      </div>
+    </div>
   </div>
+  
+  <!-- PANTALLA DE JUEGO (GAMEPLAY) -->
+  <div id="gameplay" class="screen">
+    <div class="game-header">
+      <h2>AXOLOTL PANIC</h2>
+      <div class="turn-indicator">Turno de <span id="current-turn-player"></span></div>
+      <div id="turn-timer" style="display:none;">Tiempo: <span id="timer-seconds">8</span>s</div>
+      <button class="exit-menu-btn" onclick="exitToMenu()">Salir al Menú</button>
+    </div>
+
+    <div class="game-container">
+      <!-- Panel izquierdo: Jugadores -->
+      <div class="players-panel">
+        <!-- Aquí se mostrarán tarjetas de cada jugador con nombre, basura y puntaje -->
+      </div>
+
+      <!-- Panel central: Tablero de fichas -->
+      <div class="board-panel">
+        <div class="tokens-area">
+          <h3>Fichas de Ajolotes</h3>
+          <div class="tokens-grid" id="tokens-grid"></div>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn--primary btn--lg" id="pick-card-btn" onclick="pickCard()" style="display:none;">Recoger Carta</button>
+          <button class="btn btn--secondary" id="shop-btn" onclick="openShop()">Ir a La Tiendita</button>
+          <button class="btn btn--primary" id="end-turn-btn" onclick="endTurn()" style="display:none;">Finalizar Turno</button>
+        </div>
+      </div>
+
+      <!-- Panel derecho: Mano del jugador -->
+      <div class="player-hand" id="player-hand">
+        <h3>Tus Cartas (0/5)</h3>
+        <div class="hand-cards" id="hand-cards"></div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Aquí se agregarán los modales (cartas, selección, tienda, dados, victoria, mensajes) -->
+
+  <!-- Enlace al script JavaScript -->
   <script>
-// ---- GAMEPLAY LOGIC ----
-// Variables de juego
-const jugadoresBase = [
-  { nombre:"Tu", tipo:"humano" },
-  { nombre:"Bot 1", tipo:"bot" },
-  { nombre:"Bot 2", tipo:"bot" },
-  { nombre:"Bot 3", tipo:"bot" }
-];
-const fichasBase = [
-  {color:'rosado',valor:0.5}, {color:'café',valor:1},
-  {color:'amarillo',valor:1.5}, {color:'rosado',valor:0.5},
-  {color:'café',valor:1}, {color:'amarillo',valor:1.5},
-  {color:'rosado',valor:0.5}, {color:'café',valor:1},
-  {color:'amarillo',valor:1.5}, {color:'rosado',valor:0.5},
-  {color:'café',valor:1}, {color:'amarillo',valor:1.5},
-];
-const cartasBasura = [
-  {tipo:'basura',descripcion:'Basura +1',valor:1},
-  {tipo:'basura',descripcion:'Basura +2',valor:2},
-  {tipo:'basura',descripcion:'Basura +3',valor:3}
-];
-const cartasEspeciales = [
-  {tipo:'especial',descripcion:'Robo-Basura'},
-  {tipo:'especial',descripcion:'Hora de Pescar'}
-];
-const cartasComodinReto = [
-  {tipo:'comodin_reto',descripcion:'Intercambio de Ajolotes'},
-  {tipo:'comodin_reto',descripcion:'Duelo de Perder Turno'}
-];
-const cartasComodinEvento = [
-  {tipo:'comodin_evento',descripcion:'Rotación de Basura'},
-  {tipo:'comodin_evento',descripcion:'Cambio de Rotación de Turnos'}
-];
-const tiendaObjetos = [
-  {nombre:'Objeto 1', costo:3, puntos:1},
-  {nombre:'Objeto 2', costo:6, puntos:2},
-  {nombre:'Objeto 3', costo:10, puntos:4}
-];
-const tiempoLimiteTurno = 8;
-const tiempoBotTurno = 5;
-let jugadores, fichas, cartasMain, turnoActual, turnosTotales, maxCartasAlmacenadas=5;
-let sentidoGiro=1, timerRef, juegoEnCurso=false, cartaActual=null;
-let fichaSeleccionadaIdx=null, esperandoSeleccionFicha=false;
+    // app.js - Código completo parte 1
 
-function initGame(){
-  jugadores = JSON.parse(JSON.stringify(jugadoresBase));
-  for(let j of jugadores){
-    j.basura=0; j.puntaje=0; j.fichas=[]; j.cartas=[]; j.turnosPerdidos=0;
-  }
-  fichas = shuffleArray([...fichasBase]);
-  cartasMain = shuffleArray([
-    ...cartasBasura,...cartasBasura,...cartasEspeciales,...cartasEspeciales,
-    ...cartasComodinReto,...cartasComodinEvento
-  ]);
-  turnoActual = sortTurnos();
-  turnosTotales=0;
-  sentidoGiro=1;
-  juegoEnCurso=true;
-  cartaActual=null;
-  fichaSeleccionadaIdx=null;
-  esperandoSeleccionFicha=false;
-  document.getElementById('ranking').style.display='none';
-  updateUI();
-  doTurno();
+// Estado general del juego: jugadores, turno, tokens, cartas, etc.
+const gameState = {
+  players: [],
+  currentPlayerIndex: 0,
+  tokens: [],
+  turnOrder: [],
+  turnDirection: 1,
+  currentCard: null,
+  turnTimer: null,
+  turnSeconds: 8,
+  isShopOpen: false,
+  selectingToken: false,
+  totalTurns: 0,
+  maxTurns: 30
+};
+
+// Tipos de cartas posibles en el juego
+const cardTypes = [
+  { type: 'trash', value: 1, name: 'Basura +1', description: 'Ganas 1 punto de basura' },
+  { type: 'trash', value: 2, name: 'Basura +2', description: 'Ganas 2 puntos de basura' },
+  { type: 'trash', value: 3, name: 'Basura +3', description: 'Ganas 3 puntos de basura' },
+  { type: 'steal-trash', name: 'Robo-Basura', description: 'Tira un dado y roba esa cantidad de basura a otro jugador' },
+  { type: 'fishing', name: 'Hora de Pescar', description: 'Recoge una ficha de ajolote del tablero' },
+  { type: 'duel-tokens', name: 'Intercambio de Ajolotes', description: 'Duelo con dado: el ganador roba una ficha al perdedor' },
+  { type: 'duel-turn', name: 'Duelo de Perder Turno', description: 'Duelo con dado: el perdedor pierde su siguiente turno' },
+  { type: 'rotate-trash', name: 'Rotación de Basura', description: 'Rota los puntos de basura entre todos los jugadores' },
+  { type: 'reverse-order', name: 'Cambio de Rotación', description: 'Invierte el orden de los turnos' }
+];
+
+// Objetos que se pueden comprar en la tienda
+const shopItems = [
+  { name: 'Planta Acuática', cost: 3, points: 1 },
+  { name: 'Comida Premium', cost: 6, points: 2 },
+  { name: 'Refugio Deluxe', cost: 10, points: 4 }
+];
+
+// Funciones utilitarias
+function rollDice() {
+  return Math.floor(Math.random() * 6) + 1;
 }
 
-function updateUI(){
-  const sidePanel = document.getElementById('sidePanel');
-  sidePanel.innerHTML="";
-  jugadores.forEach((j, idx) => {
-    let classes=['player-box'];
-    if(j.tipo==='bot') classes.push('bot-box');
-    if(turnoActual===idx && juegoEnCurso) classes.push('active-player');
-    if(idx===0) classes.push('you');
-    sidePanel.innerHTML+=`<div class="${classes.join(' ')}">
-      <b>${j.nombre}</b>
-      <div>Basura: ${j.basura}</div>
-      <div>Puntaje: ${j.puntaje}</div>
-      <div>Fichas: ${j.fichas.map(f=>f.valor).join(', ')||'0'}</div>
-      <div>Cartas: ${j.cartas.length}</div>
-    </div>`;
-  });
-  document.getElementById('nCartas').textContent = jugadores[turnoActual].cartas.length;
-  const cartasArea = document.getElementById('cartasAlmacenadas');
-  cartasArea.innerHTML="";
-  if(jugadores[turnoActual].tipo==='humano' && jugadores[turnoActual].cartas.length>0){
-    jugadores[turnoActual].cartas.forEach((c,i)=>{
-      cartasArea.innerHTML+= `<span class="card-saved" onclick="usarCartaAlmacenada(${i})" title="Click para usar">${c.descripcion}</span>`;
-    });
-  }else if(jugadores[turnoActual].tipo==='humano'){
-    cartasArea.innerHTML="<span style='color:#aaa;font-style:italic;'>No tienes cartas almacenadas aún.</span>";
+function shuffleArray(array) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  const fichasRow = document.getElementById('fichasCirculares');
-  fichasRow.innerHTML="";
-  fichas.forEach((f,i)=>{
-    let colorclass = f.revealed ? (f.color==='rosado'?'fichaRosa':(f.color==='café'?'fichaCafe':'fichaAmarilla')) : '';
-    fichasRow.innerHTML+=`<div class="ficha-circle ${colorclass}"></div>`;
-  });
-  document.getElementById('turnIndicator').innerHTML=`Turno de: <span style="color:#ee4cb7;font-weight:bold;">${jugadores[turnoActual].nombre}</span>`;
+  return shuffled;
 }
-// Mensajes en pantalla
-function showTurnDialog(msg){
-  const dlg=document.getElementById('turnDialog');
-  dlg.innerHTML=msg;
-  dlg.style.display='block';
-  setTimeout(()=>{dlg.style.display='none';},2400);
-}
-function doTurno(){
-  if(!juegoEnCurso) return;
-  updateUI();
-  ['recogerCartaBtn','aplicarCartaBtn','almacenarCartaBtn','finalizarTurnoBtn'].forEach(id=>{
-    document.getElementById(id).style.display='none';
+
+// Muestra la pantalla indicada y oculta las demás
+function showScreen(screenId) {
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.remove('active');
   });
-  let jugador=jugadores[turnoActual];
-  if(jugador.turnosPerdidos>0){
-    jugador.turnosPerdidos--;
-    showTurnDialog(jugador.nombre+" perdió su turno.");
-    setTimeout(siguienteTurno,1600);
-    return;
-  }
-  if(jugador.tipo==='humano'){
-    document.getElementById('recogerCartaBtn').style.display='inline-block';
-  }else{
-    timerRef = setTimeout(()=>{botTurn(jugador)},tiempoBotTurno*1000);
+  document.getElementById(screenId).classList.add('active');
+}
+
+// Muestra y oculta modales por id
+function showModal(modalId) {
+  document.getElementById(modalId).classList.add('active');
+}
+
+function hideModal(modalId) {
+  document.getElementById(modalId).classList.remove('active');
+}
+
+// Muestra mensajes con callback para cuando se cierra el modal
+function showMessage(title, text, callback) {
+  document.getElementById('message-title').textContent = title;
+  document.getElementById('message-text').textContent = text;
+  showModal('message-modal');
+  const closeBtn = document.querySelector('#message-modal .btn');
+  closeBtn.onclick = () => {
+    hideModal('message-modal');
+    if (callback) callback();
+  };
+}
+
+// Confirmación y salida del juego
+function confirmExit() {
+  if (confirm('¿Estás seguro de que quieres salir?')) {
+    window.close();
   }
 }
 
-// Bot decisiones y ejecución
-function botTurn(j){
-  let acciones = [];
-  if(j.cartas.length<maxCartasAlmacenadas) acciones.push('almacenar');
-  acciones.push('aplicar');
-  let comprarTienda = (j.basura>=tiendaObjetos[2].costo)&&(j.puntaje<jugadores[0].puntaje);
-  let usarCartaEspecial = j.cartas.some(c=>c.tipo==='especial') && (j.puntaje < Math.max(...jugadores.map(x=>x.puntaje)));
-  if(comprarTienda) acciones.push('comprar');
-  else if(j.basura>=tiendaObjetos[0].costo) acciones.push('comprar');
-  if(usarCartaEspecial) acciones.push('usar_especial');
-  let accionElegida = acciones[Math.floor(Math.random()*acciones.length)];
-  if(accionElegida==='comprar'){ openStoreBot(j); setTimeout(siguienteTurno,1100); return;}
-  cartaActual=pickRandomCarta();
-  if(j.cartas.length>=maxCartasAlmacenadas) accionElegida='aplicar';
-  if(accionElegida==='almacenar' && j.cartas.length<maxCartasAlmacenadas) j.cartas.push(cartaActual);
-  else aplicarCartaBot();
-  showTurnDialog(j.nombre+" hizo su jugada.");
-  setTimeout(siguienteTurno,1450);
+// Inicia el juego, crea jugadores, tokens y determina el primer jugador
+function startGame() {
+  initializePlayers();
+  initializeTokens();
+  determineFirstPlayer();
+  showScreen('gameplay');
 }
-function aplicarCartaBot(){
-  let c = cartaActual;
-  let j = jugadores[turnoActual];
-  if(c.tipo==='basura') j.basura+=c.valor;
-  if(c.descripcion==='Robo-Basura'){
-    let victima = elegirVictimaBot();
-    let vval = dado(6);
-    jugadores[victima].basura = Math.max(0, jugadores[victima].basura-vval);
-    j.basura += vval;
-  }
-  if(c.descripcion==='Hora de Pescar'){
-    let idx=buscarMejorFicha();
-    if(idx!==-1){
-      let f=fichas[idx]; f.revealed=true;
-      j.fichas.push(f);
-      j.puntaje+=f.valor;
-      fichas.splice(idx,1);
+
+function initializePlayers() {
+  const playerNames = ['Tu', 'Pato', 'Eli', 'Roger'];
+  gameState.players = playerNames.map((name, index) => ({
+    name,
+    isHuman: index === 0,
+    trash: 0,
+    score: 0,
+    tokens: [],
+    hand: [],
+    skipNextTurn: false
+  }));
+  updatePlayerUI();
+}
+
+function initializeTokens() {
+  const tokenColors = [
+    ...Array(4).fill({ color: 'pink', value: 0.5 }),
+    ...Array(4).fill({ color: 'brown', value: 1.0 }),
+    ...Array(4).fill({ color: 'yellow', value: 1.5 })
+  ];
+  gameState.tokens = shuffleArray(tokenColors).map((token, index) => ({
+    id: index,
+    color: token.color,
+    value: token.value,
+    collected: false
+  }));
+  renderTokens();
+}
+
+// Renderiza las fichas en el tablero
+function renderTokens() {
+  const grid = document.getElementById('tokens-grid');
+  grid.innerHTML = '';
+  gameState.tokens.forEach((token, index) => {
+    const tokenEl = document.createElement('div');
+    tokenEl.className = 'token hidden';
+    tokenEl.dataset.index = index;
+    tokenEl.textContent = '🔒';
+    if (token.collected) {
+      tokenEl.classList.add('collected');
     }
-  }
-  if(c.descripcion==='Intercambio de Ajolotes'){
-    let victima=elegirVictimaBot();
-    dueloIntercambioFichas(turnoActual,victima);
-  }
-  if(c.descripcion==='Duelo de Perder Turno'){
-    let victima=elegirVictimaBot();
-    dueloPerderTurno(turnoActual,victima);
-  }
-  if(c.descripcion==='Rotación de Basura'){
-    rotarBasuraBot();
-  }
-  if(c.descripcion==='Cambio de Rotación de Turnos'){
-    sentidoGiro*=-1;
-  }
-}
-function buscarMejorFicha(){
-  let amarillo=fichas.findIndex(f=>f.color==='amarillo'&&!f.revealed);
-  if(amarillo!==-1) return amarillo;
-  let cafe=fichas.findIndex(f=>f.color==='café'&&!f.revealed);
-  if(cafe!==-1) return cafe;
-  return fichas.findIndex(f=>!f.revealed);
-}
-function elegirVictimaBot(){
-  let otros=jugadores.map((j,i)=>i).filter(idx=>idx!==turnoActual);
-  let lider=otros.reduce((a,b)=> jugadores[a].puntaje<jugadores[b].puntaje?b:a, otros[0]);
-  return lider;
-}
-function dueloIntercambioFichas(a,b){
-  let nA=dado(6), nB=dado(6);
-  if(nA>nB&&jugadores[b].fichas.length){
-    let f=jugadores[b].fichas.pop();
-    jugadores[a].fichas.push(f);
-    jugadores[a].puntaje+=f.valor;
-    jugadores[b].puntaje-=f.valor;
-  }
-}
-function dueloPerderTurno(a,b){
-  let nA=dado(6), nB=dado(6);
-  if(nA<nB) jugadores[a].turnosPerdidos++;
-  else jugadores[b].turnosPerdidos++;
-}
-function rotarBasuraBot(){
-  let arr=jugadores.map(j=>j.basura);
-  for(let i=0;i<jugadores.length;i++){
-    jugadores[i].basura = arr[(i+sentidoGiro+jugadores.length) % jugadores.length];
-  }
-}
-function openStoreBot(j){
-  let robusto = tiendaObjetos.filter(o=>j.basura>=o.costo).pop();
-  if(robusto){
-    j.basura -= robusto.costo;
-    j.puntaje += robusto.puntos;
-  }
-}
-function pickRandomCarta(){ 
-  if(cartasMain.length===0){
-    cartasMain = shuffleArray([
-      ...cartasBasura,...cartasBasura,...cartasEspeciales,...cartasEspeciales,
-      ...cartasComodinReto,...cartasComodinEvento
-    ]);
-  }
-  return cartasMain.shift();
-}
-function siguienteTurno(){
-  turnosTotales++;
-  checkFinJuego();
-  if(!juegoEnCurso) return;
-  turnoActual=(turnoActual+sentidoGiro+jugadores.length)%jugadores.length;
-  doTurno();
-}
-function checkFinJuego(){
-  if(fichas.length===0||turnosTotales>=30){
-    juegoEnCurso=false;
-    mostrarRanking();
-  }
-}
-function mostrarRanking(){
-  document.getElementById('ranking').style.display = 'block';
-  let ranking = jugadores.map(j=>({nombre:j.nombre, puntaje:j.puntaje})).sort((a,b)=>b.puntaje-a.puntaje);
-  let html = "";
-  ranking.forEach((j,i)=>{
-    html += `<li><b>${i+1}. ${j.nombre}</b> — ${j.puntaje} puntos</li>`;
-  });
-  document.getElementById('rankingList').innerHTML = html;
-}
-
-document.getElementById('recogerCartaBtn').onclick = function(){
-  clearTimeout(timerRef);
-  cartaActual = pickRandomCarta();
-  showTurnDialog("Sacaste: "+cartaActual.descripcion);
-  document.getElementById('aplicarCartaBtn').style.display = 'inline-block';
-  document.getElementById('almacenarCartaBtn').style.display = 'inline-block';
-  document.getElementById('recogerCartaBtn').style.display = 'none';
-  document.getElementById('finalizarTurnoBtn').style.display = 'inline-block';
-  updateUI();
-};
-document.getElementById('aplicarCartaBtn').onclick = function(){ aplicarCartaHumano(); };
-document.getElementById('almacenarCartaBtn').onclick = function(){
-  let j = jugadores[turnoActual];
-  if(j.cartas.length < maxCartasAlmacenadas) j.cartas.push(cartaActual);
-  document.getElementById('aplicarCartaBtn').style.display = 'none';
-  document.getElementById('almacenarCartaBtn').style.display = 'none';
-  document.getElementById('finalizarTurnoBtn').style.display = 'inline-block';
-  cartaActual = null;
-  showTurnDialog("Carta almacenada. Presiona Finalizar Turno.");
-  updateUI();
-};
-document.getElementById('finalizarTurnoBtn').onclick = function(){
-  clearTimeout(timerRef);
-  siguienteTurno();
-};
-document.getElementById('tiendaBtn').onclick = function(){ openStore(); }
-
-function usarCartaAlmacenada(idx){
-  let j = jugadores[turnoActual];
-  if(j.tipo !== 'humano' || idx < 0 || idx >= j.cartas.length) return;
-  clearTimeout(timerRef);
-  cartaActual = j.cartas[idx];
-  j.cartas.splice(idx, 1);
-  showTurnDialog("Usaste: "+cartaActual.descripcion);
-  updateUI();
-  setTimeout(()=>{ aplicarCartaHumano(); }, 500);
-}
-
-function aplicarCartaHumano(){
-  let c = cartaActual;
-  let j = jugadores[turnoActual];
-  if(c.tipo === 'basura'){
-    j.basura += c.valor; 
-    showTurnDialog("+"+c.valor+" Basura");
-  } else if(c.descripcion === 'Robo-Basura'){
-    let victima = prompt("¿A quién le robas basura? (indica número 1-4)");
-    victima = parseInt(victima)-1;
-    if(isNaN(victima) || victima === turnoActual || victima < 0 || victima >= jugadores.length)
-      victima = (turnoActual + 1) % jugadores.length;
-    let vval = dado(6);
-    jugadores[victima].basura = Math.max(0, jugadores[victima].basura - vval);
-    j.basura += vval;
-    showTurnDialog("¡Robaste "+vval+" basura!");
-  } else if(c.descripcion === 'Hora de Pescar'){
-    abrirSeleccionFicha();
-    return;
-  } else if(c.descripcion === 'Intercambio de Ajolotes'){
-    let victima = parseInt(prompt("¿Con quién intercambias ajolotes? Indica número 1-4"), 10) - 1;
-    if(isNaN(victima) || victima === turnoActual || victima < 0 || victima >= jugadores.length)
-      victima = (turnoActual + 1) % jugadores.length;
-    dueloIntercambioFichas(turnoActual, victima);
-    showTurnDialog("¡Intercambio realizado!");
-  } else if(c.descripcion === 'Duelo de Perder Turno'){
-    let victima = parseInt(prompt("¿Contra quién duelo perder turno? Indica número 1-4"), 10) - 1;
-    if(isNaN(victima) || victima === turnoActual || victima < 0 || victima >= jugadores.length)
-      victima = (turnoActual + 1) % jugadores.length;
-    dueloPerderTurno(turnoActual, victima);
-    showTurnDialog("¡Duelo de turnos!");
-  } else if(c.descripcion === 'Rotación de Basura'){
-    rotarBasuraBot();
-    showTurnDialog("¡Rotación de basura!");
-  } else if(c.descripcion === 'Cambio de Rotación de Turnos'){
-    sentidoGiro *= -1;
-    showTurnDialog("¡Rotación invertida!");
-  }
-  document.getElementById('aplicarCartaBtn').style.display = 'none';
-  document.getElementById('almacenarCartaBtn').style.display = 'none';
-  document.getElementById('finalizarTurnoBtn').style.display = 'inline-block';
-  cartaActual = null;
-  updateUI();
-}
-
-function abrirSeleccionFicha(){
-  esperandoSeleccionFicha = true;
-  fichaSeleccionadaIdx = null;
-  document.getElementById('fichaSeleccionModal').style.display = 'flex';
-  let fichasSelectRow = document.getElementById('fichasSelectModal');
-  fichasSelectRow.innerHTML = "";
-  fichas.forEach((f, i) => {
-    let colorclass = f.revealed ? (f.color === 'rosado' ? 'fichaRosa' : (f.color === 'café' ? 'fichaCafe' : 'fichaAmarilla')) : '';
-    fichasSelectRow.innerHTML += `<div class="ficha-circle ${colorclass}" id="fichaSelectable${i}" onclick="seleccionarFichaModal(${i})" style="cursor:pointer;">${f.revealed ? f.valor : ''}</div>`;
+    grid.appendChild(tokenEl);
   });
 }
 
-function seleccionarFichaModal(idx){
-  fichaSeleccionadaIdx = idx;
-  for(let i=0; i<fichas.length; i++){
-    let elem = document.getElementById('fichaSelectable'+i);
-    if(elem) elem.classList.remove('ficha-selectable');
-  }
-  let elem = document.getElementById('fichaSelectable'+idx);
-  if(elem) elem.classList.add('ficha-selectable');
+// Determina quién comienza jugando con lanzamiento de dados
+function determineFirstPlayer() {
+  const rolls = gameState.players.map((player, index) => ({ index, roll: rollDice() }));
+  rolls.sort((a, b) => b.roll - a.roll);
+  const message = rolls.map(r => `${gameState.players[r.index].name}: ${r.roll}`).join('\n');
+  showMessage(
+    'Determinando primer jugador',
+    `Resultados de dados:\n${message}\n\n${gameState.players[rolls[0].index].name} comienza!`,
+    () => {
+      gameState.currentPlayerIndex = rolls[0].index;
+      gameState.turnOrder = rolls.map(r => r.index);
+      startTurn();
+    }
+  );
 }
+// app.js - Código completo parte 2
 
-function aceptarFichaSeleccionada(){
-  if(fichaSeleccionadaIdx === null){
-    alert('Debes seleccionar una ficha primero');
+// Manejo de turnos y juego
+
+function startTurn() {
+  const currentPlayer = gameState.players[gameState.currentPlayerIndex];
+
+  // Si el jugador tiene que perder el turno, hacer skip y pasar al siguiente
+  if (currentPlayer.skipNextTurn) {
+    currentPlayer.skipNextTurn = false;
+    showMessage('Turno Perdido', `${currentPlayer.name} pierde su turno!`, () => {
+      nextTurn();
+    });
     return;
   }
-  let j=jugadores[turnoActual];
-  let f=fichas[fichaSeleccionadaIdx];
-  f.revealed=true;
-  j.fichas.push(f);
-  j.puntaje+=f.valor;
-  fichas.splice(fichaSeleccionadaIdx,1);
-  cancelarSeleccionFicha();
-  document.getElementById('finalizarTurnoBtn').style.display='inline-block';
-  showTurnDialog("¡Pescaste una ficha "+f.color+" +"+f.valor+" puntos!");
-  updateUI();
+
+  updatePlayerUI();
+  updateTurnIndicator();
+
+  if (currentPlayer.isHuman) {
+    startHumanTurn();
+  } else {
+    startBotTurn();
+  }
 }
 
-function cancelarSeleccionFicha(){
-  esperandoSeleccionFicha=false;
-  fichaSeleccionadaIdx=null;
-  document.getElementById('fichaSeleccionModal').style.display='none';
-  cartaActual=null;
+function startHumanTurn() {
+  document.getElementById('pick-card-btn').style.display = 'block';
+  document.getElementById('end-turn-btn').style.display = 'none';
 }
-function openStore(){
-  clearTimeout(timerRef);
-  document.getElementById('storeModal').style.display='flex';
-  let items=document.getElementById('storeItems');
-  let j=jugadores[turnoActual];
-  items.innerHTML="";
-  tiendaObjetos.forEach((obj,i)=>{
-    let canBuy=j.basura>=obj.costo;
-    items.innerHTML+=`<div class="store-item"><b>${obj.nombre}</b><div class="store-item-desc">Costo: <strong>${obj.costo}</strong> basura</div><div class="store-item-desc">Puntos: <strong>+${obj.puntos}</strong></div><button class="btn btn-store" ${canBuy?'':'disabled'} onclick="buyStoreItem(${i})">Comprar</button></div>`;
+
+function startBotTurn() {
+  setTimeout(() => {
+    botPickCard();
+  }, 1000);
+}
+
+function pickCard() {
+  const card = cardTypes[Math.floor(Math.random() * cardTypes.length)];
+  gameState.currentCard = card;
+  document.getElementById('card-title').textContent = card.name;
+  document.getElementById('card-description').textContent = card.description;
+
+  const currentPlayer = gameState.players[gameState.currentPlayerIndex];
+  const canStore = currentPlayer.hand.length < 5;
+  document.getElementById('store-card-btn').style.display = canStore ? 'block' : 'none';
+
+  showModal('card-modal');
+  document.getElementById('pick-card-btn').style.display = 'none';
+}
+
+function storeCard() {
+  const currentPlayer = gameState.players[gameState.currentPlayerIndex];
+  currentPlayer.hand.push(gameState.currentCard);
+  hideModal('card-modal');
+  updatePlayerUI();
+  showEndTurnButton();
+}
+
+function applyCard() {
+  hideModal('card-modal');
+  executeCardAction(gameState.currentCard, gameState.currentPlayerIndex);
+}
+
+function executeCardAction(card, playerIndex) {
+  const player = gameState.players[playerIndex];
+
+  switch (card.type) {
+    case 'trash':
+      player.trash += card.value;
+      showMessage('Basura Recogida', `${player.name} ganó ${card.value} basura!`, () => {
+        updatePlayerUI();
+        showEndTurnButton();
+      });
+      break;
+
+    case 'steal-trash':
+      handleStealTrash(playerIndex);
+      break;
+
+    case 'fishing':
+      handleFishing(playerIndex);
+      break;
+
+    case 'duel-tokens':
+      handleDuelTokens(playerIndex);
+      break;
+
+    case 'duel-turn':
+      handleDuelTurn(playerIndex);
+      break;
+
+    case 'rotate-trash':
+      handleRotateTrash();
+      break;
+
+    case 'reverse-order':
+      handleReverseOrder();
+      break;
+  }
+}
+
+// Funciones para robar basura
+function handleStealTrash(playerIndex) {
+  const player = gameState.players[playerIndex];
+  const diceRoll = rollDice();
+  showDiceRoll(diceRoll, `${player.name} sacó ${diceRoll}!`, () => {
+    if (player.isHuman) {
+      selectOpponentForSteal(playerIndex, diceRoll);
+    } else {
+      const opponentIndex = selectRandomOpponent(playerIndex);
+      stealTrashFromPlayer(playerIndex, opponentIndex, diceRoll);
+    }
   });
 }
-function buyStoreItem(idx){
-  let j=jugadores[turnoActual];
-  let obj=tiendaObjetos[idx];
-  if(j.basura>=obj.costo){
-    j.basura-=obj.costo;
-    j.puntaje+=obj.puntos;
-    showTurnDialog(`¡Compraste ${obj.nombre}! +${obj.puntos} puntos`);
-  }
-  closeStore();
-  siguienteTurno();
-}
-function closeStore(){ document.getElementById('storeModal').style.display='none'; }
 
-function sortTurnos(){
-  let dados=jugadores.map(()=>dado(6));
-  let max=dados.indexOf(Math.max(...dados));
-  return max;
+function selectOpponentForSteal(playerIndex, amount) {
+  const title = document.getElementById('player-select-title');
+  title.textContent = `Selecciona a quién robar ${amount} basura`;
+
+  const options = document.getElementById('player-select-options');
+  options.innerHTML = '';
+
+  gameState.players.forEach((player, index) => {
+    if (index !== playerIndex) {
+      const btn = document.createElement('button');
+      btn.className = 'btn btn--primary';
+      btn.textContent = `${player.name} (Basura: ${player.trash})`;
+      btn.onclick = () => {
+        hideModal('player-select-modal');
+        stealTrashFromPlayer(playerIndex, index, amount);
+      };
+      options.appendChild(btn);
+    }
+  });
+
+  showModal('player-select-modal');
 }
-function shuffleArray(arr){
-  for(let i=arr.length-1; i>0; i--){
-    let j=Math.floor(Math.random()*(i+1));
-    [arr[i],arr[j]]=[arr[j],arr[i]];
+
+function stealTrashFromPlayer(thiefIndex, victimIndex, amount) {
+  const thief = gameState.players[thiefIndex];
+  const victim = gameState.players[victimIndex];
+  const stolen = Math.min(amount, victim.trash);
+  victim.trash -= stolen;
+  thief.trash += stolen;
+  showMessage(
+    'Robo de Basura',
+    `${thief.name} robó ${stolen} basura de ${victim.name}!`,
+    () => {
+      updatePlayerUI();
+      showEndTurnButton();
+    }
+  );
+}
+
+// Funciones para pescar fichas de ajolotes
+function handleFishing(playerIndex) {
+  gameState.selectingToken = true;
+  showModal('token-select-modal');
+  const tokens = document.querySelectorAll('.token:not(.collected)');
+  tokens.forEach(tokenEl => {
+    tokenEl.classList.add('selectable');
+    tokenEl.onclick = () => collectToken(parseInt(tokenEl.dataset.index), playerIndex);
+  });
+}
+
+function collectToken(tokenIndex, playerIndex) {
+  const token = gameState.tokens[tokenIndex];
+  if (token.collected) return;
+  const player = gameState.players[playerIndex];
+  token.collected = true;
+  player.tokens.push(token);
+  player.score += token.value;
+  gameState.selectingToken = false;
+  hideModal('token-select-modal');
+
+  // Remover clase seleccionable y eventos
+  document.querySelectorAll('.token').forEach(t => {
+    t.classList.remove('selectable');
+    t.onclick = null;
+  });
+
+  showMessage(
+    'Ajolote Rescatado!',
+    `${player.name} rescató un ajolote ${token.color}!\n+${token.value} puntos`,
+    () => {
+      renderTokens();
+      updatePlayerUI();
+      checkVictoryCondition();
+      if (!checkVictoryCondition()) {
+        showEndTurnButton();
+      }
+    }
+  );
+}
+
+function cancelTokenSelection() {
+  gameState.selectingToken = false;
+  hideModal('token-select-modal');
+  document.querySelectorAll('.token').forEach(t => {
+    t.classList.remove('selectable');
+    t.onclick = null;
+  });
+  showEndTurnButton();
+}
+// app.js - Código completo parte 3
+
+// Continuación bot AI, tienda y UI
+
+function botPickCard() {
+  const card = cardTypes[Math.floor(Math.random() * cardTypes.length)];
+  gameState.currentCard = card;
+  const bot = gameState.players[gameState.currentPlayerIndex];
+  showMessage(
+    `Turno de ${bot.name}`,
+    `${bot.name} recogió: ${card.name}`,
+    () => {
+      // Decide si guardar o aplicar carta
+      if (bot.hand.length < 5 && Math.random() > 0.4) {
+        bot.hand.push(card);
+        updatePlayerUI();
+        showEndTurnButton();
+      } else {
+        executeCardAction(card, gameState.currentPlayerIndex);
+      }
+    }
+  );
+}
+
+function selectRandomOpponent(playerIndex) {
+  const opponents = gameState.players
+    .map((p, i) => i)
+    .filter(i => i !== playerIndex);
+  return opponents[Math.floor(Math.random() * opponents.length)];
+}
+
+// Abrir y cerrar tienda
+function openShop() {
+  gameState.isShopOpen = true;
+  showModal('shop-modal');
+}
+
+function closeShop() {
+  gameState.isShopOpen = false;
+  hideModal('shop-modal');
+}
+
+// Comprar objeto en tienda
+function buyItem(itemIndex) {
+  const item = shopItems[itemIndex];
+  const player = gameState.players[gameState.currentPlayerIndex];
+  if (player.trash >= item.cost) {
+    player.trash -= item.cost;
+    player.score += item.points;
+    showMessage(
+      'Compra Exitosa!',
+      `Compraste ${item.name}!\n-${item.cost} basura\n+${item.points} puntos`,
+      () => {
+        updatePlayerUI();
+      }
+    );
+  } else {
+    showMessage(
+      'Basura Insuficiente',
+      `Necesitas ${item.cost} basura. Tienes ${player.trash}.`
+    );
   }
-  return arr;
 }
-function dado(n){
-  return 1+Math.floor(Math.random()*n);
+
+// Actualiza la UI con datos de jugadores y fichas
+function updatePlayerUI() {
+  gameState.players.forEach((player, index) => {
+    const card = document.getElementById(`player-${index}`);
+    card.querySelector('.player-name').textContent = player.name;
+    card.querySelector('.basura-count').textContent = player.trash;
+    card.querySelector('.puntaje-count').textContent = player.score.toFixed(1);
+    card.querySelector('.hand-count').textContent = player.hand.length;
+
+    // Mostrar tokens
+    const tokensDiv = card.querySelector('.player-tokens');
+    tokensDiv.innerHTML = '';
+    player.tokens.forEach(token => {
+      const tokenEl = document.createElement('div');
+      tokenEl.className = `player-token ${token.color}`;
+      tokensDiv.appendChild(tokenEl);
+    });
+
+    // Resaltar jugador activo
+    if (index === gameState.currentPlayerIndex) {
+      card.classList.add('active');
+    } else {
+      card.classList.remove('active');
+    }
+  });
+
+  // Mostrar cartas en mano jugador humano
+  const humanPlayer = gameState.players[0];
+  const handDiv = document.getElementById('hand-cards');
+  handDiv.innerHTML = '';
+  humanPlayer.hand.forEach((card, index) => {
+    const cardEl = document.createElement('div');
+    cardEl.className = 'hand-card';
+    cardEl.textContent = card.name;
+    cardEl.onclick = () => {
+      gameState.currentCard = card;
+      showModal('card-modal');
+      document.getElementById('store-card-btn').style.display = 'none';
+    };
+    handDiv.appendChild(cardEl);
+  });
 }
-</script>
+
+// Temporizador del turno
+function startTurnTimer() {
+  if (gameState.turnTimer) {
+    clearInterval(gameState.turnTimer);
+  }
+  gameState.turnSeconds = 8;
+  document.getElementById('turn-timer').style.display = 'block';
+  document.getElementById('timer-seconds').textContent = gameState.turnSeconds;
+  gameState.turnTimer = setInterval(() => {
+    if (gameState.isShopOpen) return;
+    gameState.turnSeconds--;
+    document.getElementById('timer-seconds').textContent = gameState.turnSeconds;
+    if (gameState.turnSeconds <= 0) {
+      clearInterval(gameState.turnTimer);
+      endTurn();
+    }
+  }, 1000);
+}
+
+// Mostrar botón para terminar turno
+function showEndTurnButton() {
+  if (!gameState.players[gameState.currentPlayerIndex].isHuman) {
+    setTimeout(() => endTurn(), 2000);
+    return;
+  }
+  document.getElementById('end-turn-btn').style.display = 'block';
+  startTurnTimer();
+}
+
+// Terminar turno
+function endTurn() {
+  if (gameState.turnTimer) {
+    clearInterval(gameState.turnTimer);
+  }
+  document.getElementById('turn-timer').style.display = 'none';
+  document.getElementById('end-turn-btn').style.display = 'none';
+  nextTurn();
+}
+
+// Pasar turno al siguiente jugador
+function nextTurn() {
+  gameState.totalTurns++;
+  if (checkVictoryCondition()) {
+    return;
+  }
+  const currentOrder = gameState.turnOrder.indexOf(gameState.currentPlayerIndex);
+  let nextOrder = currentOrder + gameState.turnDirection;
+  if (nextOrder >= gameState.turnOrder.length) {
+    nextOrder = 0;
+  } else if (nextOrder < 0) {
+    nextOrder = gameState.turnOrder.length - 1;
+  }
+  gameState.currentPlayerIndex = gameState.turnOrder[nextOrder];
+  startTurn();
+}
+
+// Revisar condición de victoria
+function checkVictoryCondition() {
+  const winner = gameState.players.find(player => player.tokens.length >= 12);
+  if (winner) {
+    showMessage(
+      'Juego Terminado',
+      `${winner.name} ha ganado con ${winner.score.toFixed(1)} puntos!`,
+      () => {
+        showScreen('menu-principal');
+      }
+    );
+    return true;
+  }
+  return false;
+}
+
+// Actualizar indicador del turno
+function updateTurnIndicator() {
+  const currentPlayer = gameState.players[gameState.currentPlayerIndex];
+  document.getElementById('current-turn-player').textContent = currentPlayer.name;
+}
+
+
+  </script>
+  
 </body>
 </html>
-
